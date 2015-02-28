@@ -2940,14 +2940,14 @@
                     $subsectionsClass = $subsections ? ' hasSubSections' : '';
                     $subsectionsClass .= ( ! isset ( $section['fields'] ) || empty ( $section['fields'] ) ) ? ' empty_section' : '';
                     $extra_icon = $subsections ? '<span class="extraIconSubsections"><i class="el el-chevron-down">&nbsp;</i></span>' : '';
-                    $string .= '<li id="' . $k . $suffix . '_section_group_li" class="redux-group-tab-link-li' . $hide_section . $section['class'] . $subsectionsClass . '">';
-                    $string .= '<a href="javascript:void(0);" id="' . $k . $suffix . '_section_group_li_a" class="redux-group-tab-link-a" data-key="' . $k . '" data-rel="' . $k . $suffix . '">' . $extra_icon . $icon . '<span class="group_title">' . $section['title'] . '</span></a>';
+                    $string .= '<li id="section_group_li_' . $k . $suffix . '" class="redux-group-tab-link-li' . $hide_section . $section['class'] . $subsectionsClass . '">';
+                    $string .= '<a href="javascript:void(0);" id="section_group_li_a_' . $k . $suffix . '" class="redux-group-tab-link-a" data-key="' . $k . '" data-rel="' . $k . $suffix . '">' . $extra_icon . $icon . '<span class="group_title">' . $section['title'] . '</span></a>';
 
                     $nextK = $k;
 
                     // Make sure you can make this a subsection
                     if ( $subsections ) {
-                        $string .= '<ul id="' . $nextK . $suffix . '_section_group_li_subsections" class="subsection">';
+                        $string .= '<ul id="section_group_li_subsections_' . $nextK . $suffix . '" class="subsection">';
                         $doLoop = true;
 
                         while ( $doLoop ) {
@@ -2990,8 +2990,8 @@
                                 }
 
                                 $section[ $nextK ]['class'] = isset ( $section[ $nextK ]['class'] ) ? $section[ $nextK ]['class'] : '';
-                                $string .= '<li id="' . $nextK . $suffix . '_section_group_li" class="redux-group-tab-link-li ' . $hide_sub . $section[ $nextK ]['class'] . ( $icon ? ' hasIcon' : '' ) . '">';
-                                $string .= '<a href="javascript:void(0);" id="' . $nextK . $suffix . '_section_group_li_a" class="redux-group-tab-link-a" data-key="' . $nextK . '" data-rel="' . $nextK . $suffix . '">' . $icon . '<span class="group_title">' . $sections[ $nextK ]['title'] . '</span></a>';
+                                $string .= '<li id="section_group_li_' . $nextK . $suffix . '" class="redux-group-tab-link-li ' . $hide_sub . $section[ $nextK ]['class'] . ( $icon ? ' hasIcon' : '' ) . '">';
+                                $string .= '<a href="javascript:void(0);" id="section_group_li_a_' . $nextK . $suffix . '" class="redux-group-tab-link-a" data-key="' . $nextK . '" data-rel="' . $nextK . $suffix . '">' . $icon . '<span class="group_title">' . $sections[ $nextK ]['title'] . '</span></a>';
                                 $string .= '</li>';
                             }
                         }
